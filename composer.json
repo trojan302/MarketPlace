@@ -1,0 +1,7 @@
+{
+    "require": {
+        "dompdf/dompdf": "^0.8.0",
+        "libern/qr-code-reader": "^1.0",
+	"phpmailer/phpmailer": "^5.2"
+    }
+}

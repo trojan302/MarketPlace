@@ -1,0 +1,33 @@
+body{
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+a[data-toggle='collapse']{
+  text-decoration: none;
+  background-color: none;
+  color: black;
+}
+.counter{
+  font-size: 35px;
+}
+.users{
+  background-color: #19B5FE;
+  text-align: center;
+  color: #fff;
+}
+.cart{
+  background-color: #CF000F;
+  text-align: center;
+  color: #fff;
+}
+.tasks{
+  background-color: #F7CA18;
+  text-align: center;
+  color: #fff;
+}
+.products{
+  background-color: #6C7A89;
+  text-align: center;
+  color: #fff;
+}
