@@ -3,7 +3,7 @@
 	<div id="html-content-holder" style="letter-spacing:1px;padding-top: 40px;">
 		<div class="row"> 
 			<div class="col-md-4 text-center">
-				<img src="http://localhost/oop-shopping-cart/libraries/qrcode.php?text=<?= $_SESSION['id_order'] ?>" alt="ORDER ID">
+				<img src="http://localhost/market/libraries/qrcode.php?text=<?= $_SESSION['id_order'] ?>" alt="ORDER ID">
 				<h3>ORDER ID</h3>
 				<p class="help-block">
 					<div class="text-left">
@@ -45,12 +45,12 @@
 						</tr>
 						<tr>
 					  		<td colspan="4" align="right">Tax :</td>
-					  		<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? '3%' : '3%'; ?></td>
+					  		<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? '5%' : '5%'; ?></td>
 					  		<td colspan="2">&nbsp;</td>
 					  	</tr>
 					  	<tr>
 					  		<td colspan="4" align="right">Discount Member :</td>
-					  		<td><?= $discount = ($_SESSION['scopes'] == 'member/') ? '5%' : '0%'; ?></td>
+					  		<td><?= $discount = ($_SESSION['scopes'] == 'member/') ? '3%' : '0%'; ?></td>
 					  		<td colspan="2">&nbsp;</td>
 					  	</tr>
 					  	<tr>

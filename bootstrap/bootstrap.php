@@ -11,6 +11,7 @@ require_once 'classes/Categories.php';
 require_once 'classes/Generators.php';
 require_once 'classes/Users.php';
 require_once 'classes/Cart.php';
+require_once 'classes/Daelers.php';
 require_once 'classes/init.php';
 
 ?>

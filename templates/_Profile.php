@@ -18,7 +18,7 @@
 				<?php if ($_SESSION['scopes'] == 'member/'): ?>
 				<hr>
 					<div class="help-block">
-						<i class="glyphicon glyphicon-info-sign"></i> Your are member of Betta Shop, every transaction you have a 5% discount.
+						<i class="glyphicon glyphicon-info-sign"></i> Your are member of Betta Shop, every transaction you have a 3% discount.
 					</div>
 				<?php endif ?>
 				<hr>
@@ -31,15 +31,30 @@
 				  <p>Uploading successfully!</p>
 				</div>
 				<?php endif; ?>
-				<form action="<?= $_SERVER['REQUEST_URI'] ?>" method="POST" enctype="multipart/form-data">
-					<div class="form-group">
+				<form action="http://localhost<?= $_SERVER['REQUEST_URI'] ?>" method="POST" enctype="multipart/form-data" class="panel panel-primary"">
+				<div class="panel-heading">Upload Payment</div>
+					<div class="panel-content form-group" style="padding:10px;">
 						<label>Upload Struk Transfer</label>
 						<div class="input-group">
 					      <input type="file" class="form-control" name="struk_transfer">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default" type="submit">Send!</button>
+					      <span class="input-group-addon">
+					        <i class="fa fa-paperclip"></i> Struk Payment
 					      </span>
 					    </div>
+					    <br>
+					    <label>Your Orders</label>
+					    <div class="form-group">
+					      <select name="id_order" class="form-control">
+					      	<option value="">-- Your Orders --</option>
+					      	<?php foreach ($user->get_user_order($_SESSION['users']) as $data): ?>
+					      	<option value="<?= $data['O_ID_ORDER'] ?>">
+					      		<?= $data['O_PRODUCT'] ?>  (<?= $data['O_QTY'] ?>)
+					      	</option>
+					      	<?php endforeach ?>
+					      </select>
+					    </div>
+
+				        <button class="btn btn-default" type="submit">Send!</button>
 						<input type="hidden" name="id_user" value="<?= $_SESSION['users'] ?>">
 					</div>
 				</form>
@@ -47,55 +62,60 @@
 		</div>
 
 		<div class="col-lg-9">
-			
-			<h2>Your Orders!</h2>
-			<hr>
 
-			<table id="table_order_user" class="table table-bordered table-hover table-striped small">
-				<thead>
-					<tr>
-						<th class="text-center">ORDER ID</th>
-						<th class="text-center">Product Name</th>
-						<th class="text-center">Qty</th>
-						<th class="text-center">Size</th>
-						<th class="text-center">Amount</th>
-						<th class="text-center">Tax</th>
-						<th class="text-center">Total Shipping</th>
-						<th class="text-center">Order Status</th>
-					</tr>
-				</thead>
-				<tbody>
-				<?php if ($user->get_num_order($_SESSION['users']) > 0): ?>
-				<?php foreach ($user->get_user_order($_SESSION['users']) as $data): ?>
-					<?php if ($data['O_DELETED'] != 1): ?>
-						
-					<tr <?php if ($data['O_STATUS'] == 1): ?> class="success" <?php else: ?> class="danger" <?php endif ?> >
-						<td><?= $data['O_ID_ORDER'] ?></td>
-						<td><?= $data['O_PRODUCT'] ?></td>
-						<td><?= $data['O_QTY'] ?></td>
-						<td><?= $data['O_SIZE'] ?></td>
-						<td><?= $generator->IDR($data['O_AMOUNT']) ?></td>
-						<td><?= $generator->IDR($data['O_TAX']) ?></td>
-						<td><?= $generator->IDR($data['O_TOTAL_PRICE']) ?></td>
-						<td class="text-center">
-							<?php if ($data['O_STATUS'] == 0): ?>
-								<label class="label label-danger">Pending...</label>
-							<?php else: ?>
-								<a id="delete_order_user" href="javascipt:;" data-user-order="<?= $data['O_ID_ORDER'] ?>" title="delete from order table"><label class="label label-success"><i class="fa fa-truck"></i> Process...</label></a>
-							<?php endif ?>
-						</td>
-					</tr>
-					<?php endif ?>
-					
-				<?php endforeach ?>
-				<?php else: ?>
-					<tr>
-						<td colspan="10" align="center">Data Order is Empty</td>
-					</tr>
-				<?php endif ?>
-				</tbody>
-			</table>
+		<?php if (isset($_GET['success'])) { ?>
+		<div class="alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Woow!</strong> <?= $_GET['success']; ?>
 		</div>
+		<?php }elseif (isset($_GET['error'])){ ?>
+		<div class="alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Oops!</strong> <?= $_GET['error']; ?>
+		</div>
+		<?php } ?>
+
+			<div class="card tabcordion">
+			    <ul class="nav nav-tabs" role="tablist">
+			    <?php if ($_SESSION['scopes'] == 'user/'): ?>
+			        <li role="presentation"><a href="#YourOrders" aria-controls="YourOrders" class="tab" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Your Orders</a></li>
+			        <li role="presentation"><a href="#messages" aria-controls="messages" class="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i> Messages</a></li>
+			        <li role="presentation"><a href="#settings" aria-controls="settings" class="tab" data-toggle="tab"><i class="fa fa-cogs"></i> Settings</a></li>
+			    <?php else: ?>
+			        <li role="presentation" class="active">
+			        	<a href="#UserOrder" aria-controls="UserOrder" class="tab" data-toggle="tab"><i class="fa fa-shopping-cart"></i> User Orders</a>
+			        </li>
+			        <li role="presentation"><a href="#YourOrders" aria-controls="YourOrders" class="tab" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Your Orders</a></li>
+			        <li role="presentation"><a href="#SaleItem" aria-controls="SaleItem" class="tab" data-toggle="tab"><i class="fa fa-archive"></i> Sale Items</a></li>
+			        <li role="presentation"><a href="#messages" aria-controls="messages" class="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i> Messages</a></li>
+			        <li role="presentation"><a href="#settings" aria-controls="settings" class="tab" data-toggle="tab"><i class="fa fa-cogs"></i> Settings</a></li>
+			    <?php endif; ?>
+			    </ul>
+
+			    <!-- Tab panes -->
+			    <div class="tab-content">
+			    <?php if ($_SESSION['scopes'] != 'user/'): ?>
+			        <div role="tabpanel" class="tab-pane active" id="UserOrder">
+			        	<?php require_once 'sub_templates/_TableUserOrders.php'; ?>
+			        </div>
+			    <?php endif; ?>
+			        <div role="tabpanel" class="tab-pane" id="YourOrders">
+			        	<?php require_once 'sub_templates/_TableDaelerOrders.php'; ?>
+			        </div>
+			    <?php if ($_SESSION['scopes'] != 'user/'): ?>
+			        <div role="tabpanel" class="tab-pane" id="SaleItem">
+			        	<?php require_once 'sub_templates/_SaleItems.php'; ?>
+			        </div>
+			    <?php endif ?>
+			        <div role="tabpanel" class="tab-pane" id="messages">
+			        	<?php require_once 'sub_templates/_Messages.php'; ?>
+			        </div>
+			        <div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
+			    </div>
+			</div>
+
+		</div>
+
 	</div>
 
 </div>

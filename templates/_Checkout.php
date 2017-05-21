@@ -15,7 +15,7 @@
 
 	<div class="row">
 	<div class="col-md-3 text-center">
-	<img src="http://localhost/oop-shopping-cart/libraries/qrcode.php?text=<?= $generator->orderID() ?>">
+	<img src="http://localhost/market/libraries/qrcode.php?text=<?= $generator->orderID() ?>">
 	<p class="help-block">ORDER ID</p>
 	<div class="text-left">
 	<p><b>Read Me</b></p>
@@ -32,9 +32,9 @@
 				<label for="amount">Amount</label><br>
 				<?php if ($_SESSION['scopes'] == 'member/'): ?>
 					
-				<input type="text" value="<?= number_format( $_SESSION['total_price'] - ($_SESSION['total_price'] * 0.05) + ($_SESSION['total_price']*0.03) , 2, ',', '.') ?>" readonly class="form-control">
+				<input type="text" value="<?= number_format( $_SESSION['total_price'] - ($_SESSION['total_price'] * 0.03) + ($_SESSION['total_price']*0.05) , 2, ',', '.') ?>" readonly class="form-control">
 				<?php else: ?>
-				<input type="text" value="<?= number_format( $_SESSION['total_price'] + ($_SESSION['total_price']*0.03) , 2, ',', '.') ?>" readonly class="form-control">
+				<input type="text" value="<?= number_format( $_SESSION['total_price'] + ($_SESSION['total_price']*0.05) , 2, ',', '.') ?>" readonly class="form-control">
 				<?php endif ?>
 			</div>
 			<div class="help-block">
@@ -80,20 +80,20 @@
 			<?php if ($_SESSION['scopes'] == 'member/'): ?>
 			<tr>
 				<td colspan="3" align="right">Tax :</td>
-				<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? $generator->IDR(($_SESSION['total_price']*0.03)) : $generator->IDR(($_SESSION['total_price']*0.03)); ?></td>
+				<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? $generator->IDR(($_SESSION['total_price']*0.05)) : $generator->IDR(($_SESSION['total_price']*0.05)); ?></td>
 			</tr>
 			<tr>
 				<td colspan="3" align="right">Discount :</td>
-				<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? $generator->IDR( ($_SESSION['total_price'] * 0.05) ) : $generator->IDR($_SESSION['total_price']); ?></td>
+				<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? $generator->IDR( ($_SESSION['total_price'] * 0.03) ) : $generator->IDR($_SESSION['total_price']); ?></td>
 			</tr>
 			<tr>
 				<td colspan="3" align="right">Total Shipping :</td>
-				<td><?= $generator->IDR( $_SESSION['total_price'] - ($_SESSION['total_price'] * 0.05) + ($_SESSION['total_price']*0.03) ) ?></td>
+				<td><?= $generator->IDR( $_SESSION['total_price'] - ($_SESSION['total_price'] * 0.03) + ($_SESSION['total_price']*0.05) ) ?></td>
 			</tr>
 			<?php else: ?>
 			<tr>
 				<td colspan="3" align="right">Tax :</td>
-				<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? $generator->IDR(($_SESSION['total_price']*0.03)) : $generator->IDR(($_SESSION['total_price']*0.03)); ?></td>
+				<td><?= $tax = ($_SESSION['scopes'] == 'member/') ? $generator->IDR(($_SESSION['total_price']*0.05)) : $generator->IDR(($_SESSION['total_price']*0.05)); ?></td>
 			</tr>
 			<tr>
 				<td colspan="3" align="right">Total Shipping :</td>

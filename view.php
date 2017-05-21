@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_GET['id']) && !isset($_GET['item'])) {
-	header('Location: http://localhost/oop-shopping-cart/');
+	header('Location: http://localhost/market/');
 }
 
 require  __DIR__ . '/bootstrap/bootstrap.php';

@@ -113,7 +113,7 @@ class Products extends Database {
 				$fileinfo   = pathinfo($filename)['extension'];
 				$fileupload = $id_product.'-'.str_replace(' ', '-',  $item_name).'.'.$fileinfo;  
 				$filepath	= '../assets/images/product-img/' . $fileupload;
-				$filehost 	= str_replace('../','http://localhost/oop-shopping-cart/', $filepath);
+				$filehost 	= str_replace('../','http://localhost/market/', $filepath);
 
 				$availabe   = array('jpg','jpeg','png','gif');
 
@@ -158,7 +158,7 @@ class Products extends Database {
 		$sql = $this->db->query($query);
 		$data = $sql->fetch_assoc();
 
-		$images = str_replace('http://localhost/oop-shopping-cart/','../', $data['images']);
+		$images = str_replace('http://localhost/market/','../', $data['images']);
 
 		return $images;
 
@@ -215,8 +215,8 @@ class Products extends Database {
 			$fileinfo   = pathinfo($images)['extension'];
 			$fileupload = $id_product.'-'.str_replace(' ', '-',  $name).'.'.$fileinfo;  
 			$filepath	= '../assets/images/product-img/' . $fileupload;
-			$filehost 	= str_replace('../','http://localhost/oop-shopping-cart/', $filepath);
-			$fileremove	= str_replace('http://localhost/oop-shopping-cart/','../', $old_images);
+			$filehost 	= str_replace('../','http://localhost/market/', $filepath);
+			$fileremove	= str_replace('http://localhost/market/','../', $old_images);
 
 			$query = "UPDATE products SET name='".$name."', size='".$size."', stock='".$stock."', id_cat='".$id_cat."', equity='".$equity."', price='".$price."', images='".$filehost."', updated='".$updated."' WHERE id_product='".$id_product."'";
 			$sql = $this->db->query($query);

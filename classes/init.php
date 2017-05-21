@@ -21,6 +21,8 @@ $generator 		= new Generators();
 $QRCodeReader	= new Libern\QRCodeReader\QRCodeReader();
 $cart 			= new Cart();
 
+$daelers 		= new Daelers();
+
 /* Admin Private Initialized */
 
 $payments = new Payments();

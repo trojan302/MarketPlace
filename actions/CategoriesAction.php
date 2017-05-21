@@ -8,9 +8,9 @@ if (isset($_POST['add_category'])) {
 	$add = $categories->add_category($data);
 
 	if ($add == true) {
-		header('Location: http://localhost/oop-shopping-cart/admin/categories.php');
+		header('Location: http://localhost/market/admin/categories.php');
 	}else{
-		header('Location: http://localhost/oop-shopping-cart/admin/categories.php');
+		header('Location: http://localhost/market/admin/categories.php');
 	}
 
 }
@@ -22,9 +22,9 @@ if (isset($_POST['editCategory'])) {
 	$add = $categories->update_category($data);
 
 	if ($add == true) {
-		header('Location: http://localhost/oop-shopping-cart/admin/categories.php');
+		header('Location: http://localhost/market/admin/categories.php');
 	}else{
-		header('Location: http://localhost/oop-shopping-cart/admin/categories.php');
+		header('Location: http://localhost/market/admin/categories.php');
 	}
 
 }
@@ -34,9 +34,9 @@ if (isset($_GET['id_cat'])) {
 	$delete = $categories->delete_category($_GET['id_cat']);
 
 	if ($delete == true) {
-		header('Location: http://localhost/oop-shopping-cart/admin/categories.php');
+		header('Location: http://localhost/market/admin/categories.php');
 	}else{
-		header('Location: http://localhost/oop-shopping-cart/admin/categories.php');
+		header('Location: http://localhost/market/admin/categories.php');
 	}
 
 }

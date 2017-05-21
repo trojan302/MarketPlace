@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 16, 2017 at 08:03 
+-- Generation Time: May 21, 2017 at 11:10 
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -99,6 +99,14 @@ CREATE TABLE `order_product` (
   `deleted` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `order_product`
+--
+
+INSERT INTO `order_product` (`id_order`, `id_product`, `id_user`, `qty`, `size`, `account_name`, `amount`, `tax`, `total_price`, `out_of_date`, `order_date`, `status`, `deleted`) VALUES
+('ORD-0518-17-1', 'DLR-0504-17-1', 'USR-0414-17-4', '1', 'Medium', 'Aisyah Anjani', 450000, 13500, 472500, '2017-05-21', '2017-05-18', 1, 0),
+('ORD-0520-17-2', 'DLR-0504-17-3', 'USR-0414-17-4', '1', 'Medium', 'Aisyah Anjani', 540000, 16200, 567000, '2017-05-23', '2017-05-20', 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -124,9 +132,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_product`, `id_user`, `name`, `images`, `stock`, `id_cat`, `size`, `equity`, `price`, `created`, `updated`) VALUES
-('DLR-0504-17-1', 'USR-0406-17-2', 'Kandang Pleci I', 'http://localhost/market/assets/images/product-img/DLR-0504-17-1-Kandang-Pleci-I.jpg', 5, 1, 'Medium', 350000, 450000, '2017-05-04', NULL),
+('DLR-0504-17-1', 'USR-0406-17-2', 'Kandang Pleci I', 'http://localhost/market/assets/images/product-img/DLR-0504-17-1-Kandang-Pleci-I.jpg', 4, 1, 'Medium', 350000, 450000, '2017-05-04', NULL),
 ('DLR-0504-17-2', 'USR-0414-17-6', 'Kandang Pleci II', 'http://localhost/market/assets/images/product-img/DLR-0504-17-2-Kandang-Pleci-II.jpg', 10, 1, 'Medium, Large', 350000, 456000, '2017-05-04', NULL),
-('DLR-0504-17-3', 'USR-0406-17-2', 'Kandang Pleci Keren', 'http://localhost/market/assets/images/product-img/DLR-0504-17-3-Kandang-Pleci-Keren.jpg', 3, 1, 'Medium', 450000, 540000, '2017-05-04', NULL),
+('DLR-0504-17-3', 'USR-0406-17-2', 'Kandang Pleci Keren', 'http://localhost/market/assets/images/product-img/DLR-0504-17-3-Kandang-Pleci-Keren.jpg', 2, 1, 'Medium', 450000, 540000, '2017-05-04', NULL),
 ('DLR-0505-17-4', 'USR-0406-17-2', 'Best Of Kandang', 'http://localhost/market/assets/images/product-img/DLR-0505-17-4-Best-Of-Kandang.jpg', 2, 1, 'Medium', 430000, 475000, '2017-05-05', NULL);
 
 -- --------------------------------------------------------
@@ -138,9 +146,17 @@ INSERT INTO `products` (`id_product`, `id_user`, `name`, `images`, `stock`, `id_
 CREATE TABLE `struk_payment` (
   `id_struk` int(11) NOT NULL,
   `id_user` varchar(50) NOT NULL,
+  `id_order` varchar(100) NOT NULL,
   `struk_image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `struk_payment`
+--
+
+INSERT INTO `struk_payment` (`id_struk`, `id_user`, `id_order`, `struk_image`, `status`) VALUES
+(1, 'USR-0414-17-4', 'ORD-0518-17-1', 'http://localhost/market/assets/images/struk_payment/19052017114157-USR-0414-17-4-struk-payment.jpeg', 1);
 
 -- --------------------------------------------------------
 
@@ -157,6 +173,14 @@ CREATE TABLE `transactions` (
   `net_income` int(11) NOT NULL,
   `date_transaction` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id_transaction`, `id_order`, `id_product`, `id_user`, `gross_income`, `net_income`, `date_transaction`) VALUES
+(1, 'ORD-0518-17-1', 'DLR-0504-17-1', 'USR-0414-17-4', 472500, 450000, '2017-05-19 04:43:04'),
+(3, 'ORD-0520-17-2', 'DLR-0504-17-3', 'USR-0414-17-4', 567000, 540000, '2017-05-19 20:20:23');
 
 -- --------------------------------------------------------
 
@@ -375,12 +399,12 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `struk_payment`
 --
 ALTER TABLE `struk_payment`
-  MODIFY `id_struk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_struk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --

@@ -5,7 +5,7 @@ class Cart extends Database{
 	public $discount;
 
 	public function discount($total_price){
-		$this->discount = ($total_price - ($total_price*0.05) + ($total_price*0.03));
+		$this->discount = ($total_price - ($total_price*0.03) + ($total_price*0.05));
 
 		return $this->discount;
 	}  
@@ -18,13 +18,13 @@ class Cart extends Database{
 
 		if ($result['Member'] == 'Premium') {
 
-			$total_plus_discount = $total_price - ($total_price * 0.05) + ($total_price * 0.03);
+			$total_plus_discount = $total_price - ($total_price * 0.03) + ($total_price * 0.05);
 
 			return $total_plus_discount;
 
 		}else{
 
-			$tax_ppn = ($total_price * 0.03);
+			$tax_ppn = ($total_price * 0.05);
 			$total_price_plus_ppn = ($total_price + $tax_ppn);
 
 			return $total_price_plus_ppn;

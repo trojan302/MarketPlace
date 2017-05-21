@@ -1,6 +1,6 @@
 <?php 
 
-$conn = new MySQLi('localhost','root','','project_ecommerce');
+$conn = new MySQLi('localhost','root','','marketplace');
 
 $id_user = $_GET['id_user'];
 

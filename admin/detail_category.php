@@ -2,7 +2,7 @@
 
 $id_user = $_GET['id_cat'];
 
-$conn = new MySQLi('localhost','root','','project_ecommerce'); 
+$conn = new MySQLi('localhost','root','','marketplace'); 
 
 $sql    = "SELECT * FROM categories WHERE id_cat='".$_GET['id_cat']."'";
 $query  = $conn->query($sql);

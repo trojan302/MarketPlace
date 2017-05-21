@@ -1,6 +1,6 @@
 <?php 
 
-$conn = new MySQLi('localhost','root','','project_ecommerce');
+$conn = new MySQLi('localhost','root','','marketplace');
 
 $query_select = "SELECT
   DATE_FORMAT(`transactions`.`date_transaction`, '%Y-%m') AS `DateTrasaction`,

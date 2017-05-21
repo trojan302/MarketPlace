@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['billing'])) {
-	header('Location: http://localhost/oop-shopping-cart/member/');
+	header('Location: http://localhost/market/member/');
 }
 
 require './bootstraps/autoload.php';

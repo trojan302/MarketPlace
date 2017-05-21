@@ -12,6 +12,7 @@ require_once '../classes/Users.php';
 require_once '../classes/Cart.php';
 require_once '../classes/AdminNotifications.php';
 require_once '../classes/Payments.php';
+require_once '../classes/Daelers.php';
 require_once '../classes/init.php';
 require_once '../actions/UserActions.php';
 require_once '../actions/CategoriesAction.php';

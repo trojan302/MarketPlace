@@ -23,7 +23,7 @@ class Users extends Database
 				$_SESSION['email'] = $data['email'];
 				$_SESSION['scopes'] = 'user/';
 
-				header('Location: http://localhost/oop-shopping-cart/user/index.php');
+				header('Location: http://localhost/market/user/index.php');
 
 			}elseif ($data['id_member'] == 2) {
 
@@ -33,7 +33,7 @@ class Users extends Database
 				$_SESSION['email'] = $data['email'];
 				$_SESSION['scopes'] = 'member/';
 
-				header('Location: http://localhost/oop-shopping-cart/member/index.php');
+				header('Location: http://localhost/market/member/index.php');
 
 			}else{
 
@@ -43,13 +43,13 @@ class Users extends Database
 				$_SESSION['email'] = $data['email'];
 				$_SESSION['scopes'] = 'admin/';
 
-				header('Location: http://localhost/oop-shopping-cart/admin/index.php');
+				header('Location: http://localhost/market/admin/index.php');
 			}
 
 
 		}else{
 
-			header('Location: http://localhost/oop-shopping-cart/');
+			header('Location: http://localhost/market/');
 
 		}
 
@@ -58,7 +58,7 @@ class Users extends Database
 	public function is_loggedin($session_users){
 
 		if (!isset($session_users)) {
-			header('Location: http://localhost/oop-shopping-cart/');
+			header('Location: http://localhost/market/');
 		}
 
 	}
@@ -82,9 +82,9 @@ class Users extends Database
 		$sql = $this->db->query($query);
 
 		if($sql){
-			header('Location: http://localhost/oop-shopping-cart/signup.php?success=' . urlencode('Thanks for registration...'));
+			header('Location: http://localhost/market/signup.php?success=' . urlencode('Thanks for registration...'));
 		}else{
-			header('Location: http://localhost/oop-shopping-cart/signup.php?error=' . urlencode('Registration failed!'));
+			header('Location: http://localhost/market/signup.php?error=' . urlencode('Registration failed!'));
 		}
 
 	}
@@ -165,18 +165,19 @@ class Users extends Database
 	public function user_upload_struk($data){
 
 		$id_user 		= $data['id_user'];
+		$id_order 		= $data['id_order'];
 		$upload_path 	= $data['upload_path'];
 		$upload_url 	= $data['upload_url'];
 		$tmp 			= $data['tmp'];
 
-		$query = "INSERT INTO struk_payment (id_struk,id_user,struk_image,status) VALUES ('','".$id_user."','".$upload_url."',0)";
+		$query = "INSERT INTO struk_payment (id_struk,id_user,id_order,struk_image,status) VALUES ('','".$id_user."','".$id_order."','".$upload_url."',0)";
 		$sql = $this->db->query($query);
 
 		if ($sql) {
 			move_uploaded_file($tmp, $upload_path);
-			echo "<script>window.location.href='http://localhost/oop-shopping-cart/user/profile.php?success=true'</script>";
+			echo "<script>window.location.href='http://localhost/market/user/profile.php?success=true'</script>";
 		}else{
-			echo "<script>window.location.href='http://localhost/oop-shopping-cart/user/profile.php?error=true'</script>";
+			echo "<script>window.location.href='http://localhost/market/user/profile.php?error=true'</script>";
 		}
 
 	}
@@ -195,6 +196,16 @@ class Users extends Database
 				FROM users JOIN members ON users.id_member = members.id_member WHERE users.status=0";
 		$sql = $this->db->query($query);
 		$result = $sql->fetch_all(MYSQLI_ASSOC);
+
+		return $result;
+
+	}
+
+	public function settings($id_user){
+
+		$query = "SELECT * FROM users WHERE id_user='".$id_user."'";
+		$sql = $this->db->query($query);
+		$result = $sql->fetch_assoc();
 
 		return $result;
 

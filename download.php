@@ -2,7 +2,7 @@
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'localhost/oop-shopping-cart/content.php');
+curl_setopt($ch, CURLOPT_URL, 'localhost/market/content.php');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $my_html = curl_exec($ch);
 curl_close($ch);

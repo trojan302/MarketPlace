@@ -2,7 +2,7 @@
 
 	$idOrder = $_GET['idOrder'];
 
-	$conn = new MySQLi('localhost','root','','project_ecommerce');
+	$conn = new MySQLi('localhost','root','','marketplace');
 
 	$query_select = "SELECT order_product.id_product AS ID_PRD, order_product.id_user AS ID_USER, order_product.status AS STATUS, order_product.qty AS QTY_ORD, products.stock AS STOCK, order_product.amount AS TOTAL_AMOUNT, order_product.total_price AS TOTAL_EARNING, order_product.id_order AS ID_ORDER, DATE_FORMAT(order_product.order_date, '%Y-%m') AS ORDER_DATE FROM order_product JOIN products ON order_product.id_product = products.id_product WHERE order_product.id_order='".$idOrder."'";
 	$sql_select = $conn->query($query_select);

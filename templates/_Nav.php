@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top card">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -8,12 +8,18 @@
         <span class="icon-bar"></span>
       </button>
       <?php if (!empty($_SESSION['scopes'])) { ?>
-      <a class="navbar-brand" href="<?= __SHOP__ . $_SESSION['scopes'] ?>"><i class="fa fa-shopping-bag"></i> Betta Shop</a>
+      <a class="navbar-brand" href="<?= __SHOP__ . $_SESSION['scopes'] ?>"><i class="fa fa-shopping-bag"></i> E-Market</a>
       <?php }else{ ?>
-      <a class="navbar-brand" href="<?= __SHOP__?>"><i class="fa fa-shopping-bag"></i> Betta Shop</a>
+      <a class="navbar-brand" href="<?= __SHOP__?>"><i class="fa fa-shopping-bag"></i> E-Market</a>
       <?php } ?>
       <ul class="nav navbar-nav">
-          <li class="active"><a href="<?= __SHOP__?>">Home</a></li>
+          <li class="active"> 
+          <?php if (!empty($_SESSION['scopes'])): ?> 
+            <a href="<?= __SHOP__ . $_SESSION['scopes'] ?>">Home</a>
+          <?php else: ?> 
+            <a href="<?= __SHOP__?>">Home</a>
+          <?php endif ?>
+          </li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-info-sign"></i> How To? <span class="caret"></span></a>

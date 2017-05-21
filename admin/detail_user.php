@@ -2,7 +2,7 @@
 
 $id_user = $_GET['id_user'];
 
-$conn = new MySQLi('localhost','root','','project_ecommerce'); 
+$conn = new MySQLi('localhost','root','','marketplace'); 
 
 $sql    = "SELECT * FROM users WHERE id_user='".$_GET['id_user']."'";
 $query  = $conn->query($sql);

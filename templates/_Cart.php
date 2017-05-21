@@ -75,11 +75,11 @@
 		  <table width="100%">
 		  	<tr>
 		  		<th>Tax</th>
-		  		<td>: 3%</td>
+		  		<td>: 5%</td>
 		  	</tr>
 		  	<tr>
 		  		<th>Discount</th>
-		  		<td>: <?= $discount = ($_SESSION['scopes'] == 'member/') ? '5%' : '0%'; ?></td>
+		  		<td>: <?= $discount = ($_SESSION['scopes'] == 'member/') ? '3%' : '0%'; ?></td>
 		  	</tr>
 		  	<tr>
 		  		<th>Total Shipping</th>

@@ -5,25 +5,25 @@ class Orders extends Database{
 
 	public function auto_insert_data_transaction(){
 
-		$month = date('Y-m');
-		$now = date('Y-m-d h:i:s');
+		// $month = date('Y-m');
+		// $now = date('Y-m-d h:i:s');
 
-		$query 	= "SELECT order_product.id_product AS ID_PRD, order_product.id_user AS ID_USER, order_product.status AS STATUS, order_product.qty AS QTY_ORD, products.stock AS STOCK, order_product.amount AS TOTAL_AMOUNT, order_product.total_price AS TOTAL_EARNING, order_product.id_order AS ID_ORDER, DATE_FORMAT(order_product.order_date, '%Y-%m') AS ORDER_DATE FROM order_product JOIN products ON order_product.id_product = products.id_product WHERE order_product.status=1";
-		$sql 	= $this->db->query($query);
-		$result = $sql->fetch_assoc();
+		// $query 	= "SELECT order_product.id_product AS ID_PRD, order_product.id_user AS ID_USER, order_product.status AS STATUS, order_product.qty AS QTY_ORD, products.stock AS STOCK, order_product.amount AS TOTAL_AMOUNT, order_product.total_price AS TOTAL_EARNING, order_product.id_order AS ID_ORDER, DATE_FORMAT(order_product.order_date, '%Y-%m') AS ORDER_DATE FROM order_product JOIN products ON order_product.id_product = products.id_product WHERE order_product.status=1";
+		// $sql 	= $this->db->query($query);
+		// $result = $sql->fetch_assoc();
 
-		if (!$result['ID_ORDER']) {
+		// if (!$result['ID_ORDER']) {
 
-			if ( $month >= $result['ORDER_DATE']) {
+		// 	if ( $month >= $result['ORDER_DATE']) {
 				
-				$query 	= "INSERT INTO `transactions`(`id_transaction`, `id_order`, `id_product`, `id_user`, `gross_income`, `net_income`, `date_transaction`) VALUES ('','".$result['ID_ORDER']."','".$result['ID_PRD']."','".$result['ID_USER']."','".$result['TOTAL_EARNING']."','".$result['TOTAL_AMOUNT']."','".$now."')";
-				$sql 	= $this->db->query($query);
+		// 		$query 	= "INSERT INTO `transactions`(`id_transaction`, `id_order`, `id_product`, `id_user`, `gross_income`, `net_income`, `date_transaction`) VALUES ('','".$result['ID_ORDER']."','".$result['ID_PRD']."','".$result['ID_USER']."','".$result['TOTAL_EARNING']."','".$result['TOTAL_AMOUNT']."','".$now."')";
+		// 		$sql 	= $this->db->query($query);
 
-			}
+		// 	}
 
-		}
+		// }
 
-		return error_reporting(0);
+		// return error_reporting(0);
 
 	}
 

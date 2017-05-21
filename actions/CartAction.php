@@ -55,7 +55,7 @@ if (isset($_POST['total_shipping'])) {
 	$_SESSION['total_price'] 	= $_POST['total_price'];
 	$_SESSION['total_shipping'] = $_POST['total_shipping'];
 
-	header('Location: http://localhost/oop-shopping-cart/member/chekout.php');
+	header('Location: http://localhost/market/member/chekout.php');
 
 }
 
@@ -78,9 +78,9 @@ if (isset($_POST['amount'])) {
 		$_SESSION['billing'] = $_POST['id_user'];
 		$_SESSION['id_order'] = $_POST['id_order'];
 		
-		header('Location: http://localhost/oop-shopping-cart/member/print_billing.php');
+		header('Location: http://localhost/market/member/print_billing.php');
 	}else{
-		header('Location: http://localhost/oop-shopping-cart/member/chekout.php?error=' . urlencode('Account Number not define!'));
+		header('Location: http://localhost/market/member/chekout.php?error=' . urlencode('Account Number not define!'));
 	}
 	
 }

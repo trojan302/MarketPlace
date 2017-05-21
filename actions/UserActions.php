@@ -5,9 +5,9 @@ if (isset($_GET['delete_user'])) {
 	$delete = $user->delete_user($_GET['delete_user']);
 
 	if($delete == true){
-		header('Location : http://localhost/oop-shopping-cart/admin/users.php?success='. urlencode('Deleting user successfully'));
+		header('Location : http://localhost/market/admin/users.php?success='. urlencode('Deleting user successfully'));
 	}else{
-		header('Location : http://localhost/oop-shopping-cart/admin/users.php?error='. urlencode('Oops! Deleting user failed!'));
+		header('Location : http://localhost/market/admin/users.php?error='. urlencode('Oops! Deleting user failed!'));
 	}
 
 }
@@ -30,9 +30,9 @@ if (isset($_POST['editUser'])) {
 	$update = $user->update_user($data);
 
 	if($update == true){
-		header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/users.php?success='. urlencode('Updating user successfully'));
+		header('Refresh:0; url=http://localhost/market/admin/users.php?success='. urlencode('Updating user successfully'));
 	}else{
-		header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/users.php?error='. urlencode('Oops! Updating user failed!'));
+		header('Refresh:0; url=http://localhost/market/admin/users.php?error='. urlencode('Oops! Updating user failed!'));
 	}
 
 }

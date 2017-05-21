@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id_user']) && !isset($_SESSION['total_price']) && !isset($_SESSION['total_shipping'])) {
-	header('Location: http://localhost/oop-shopping-cart/member/');
+	header('Location: http://localhost/market/member/');
 }
 
 require_once './bootstraps/autoload.php';

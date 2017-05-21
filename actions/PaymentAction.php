@@ -27,22 +27,22 @@ if (isset($_FILES['billing_upload']['name'])) {
 				$payment = $orders->get_user_order_payment($qrcode);
 
 				if (count($payment) == 0) {
-					header('Location: http://localhost/oop-shopping-cart/member/payment.php#alert-messages');
+					header('Location: http://localhost/market/member/payment.php#alert-messages');
 				}
 
 			}else{
 				unlink('../assets/images/payments/'.$filename);
-				header('Location: http://localhost/oop-shopping-cart/member/payment.php#alert-messages');
+				header('Location: http://localhost/market/member/payment.php#alert-messages');
 			}
 
 		}else{
 			unlink('../assets/images/payments/'.$filename);
-			header('Location: http://localhost/oop-shopping-cart/member/payment.php#alert-messages');
+			header('Location: http://localhost/market/member/payment.php#alert-messages');
 		}
 
 	}else{
 
-		header('Location: http://localhost/oop-shopping-cart/member/payment.php#alert-messages');		
+		header('Location: http://localhost/market/member/payment.php#alert-messages');		
 
 	}
 

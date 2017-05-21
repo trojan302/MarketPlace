@@ -22,9 +22,9 @@ if (isset($_POST['addItem'])) {
 	$insert = $products->add_product($data);
 
 	if($insert == true){
-		header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?success='. urlencode('Add product successfully'));
+		header('Refresh:0; url=http://localhost/market/admin/products.php?success='. urlencode('Add product successfully'));
 	}else{
-		header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?error='. urlencode('Oops! Add product failed!'));
+		header('Refresh:0; url=http://localhost/market/admin/products.php?error='. urlencode('Oops! Add product failed!'));
 	}
 
 }
@@ -34,9 +34,9 @@ if (isset($_GET['detele_product'])) {
 	$delete = $products->delete_product($_GET['detele_product']);
 
 	if($delete == true){
-		header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?success='. urlencode('delete product successfully'));
+		header('Refresh:0; url=http://localhost/market/admin/products.php?success='. urlencode('delete product successfully'));
 	}else{
-		header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?error='. urlencode('Oops! delete product failed!'));
+		header('Refresh:0; url=http://localhost/market/admin/products.php?error='. urlencode('Oops! delete product failed!'));
 	}
 
 }
@@ -73,9 +73,9 @@ if (isset($_POST['editProduct'])) {
 		$update = $products->update_product($data);
 
 		if($update == true){
-			header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?success='. urlencode('Update product successfully'));
+			header('Refresh:0; url=http://localhost/market/admin/products.php?success='. urlencode('Update product successfully'));
 		}else{
-			header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?error='. urlencode('Oops! Update product failed!'));
+			header('Refresh:0; url=http://localhost/market/admin/products.php?error='. urlencode('Oops! Update product failed!'));
 		}
 
 	}else{
@@ -99,9 +99,9 @@ if (isset($_POST['editProduct'])) {
 		$update = $products->update_product($data);
 
 		if($update == true){
-			header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?success='. urlencode('Update product successfully'));
+			header('Refresh:0; url=http://localhost/market/admin/products.php?success='. urlencode('Update product successfully'));
 		}else{
-			header('Refresh:0; url=http://localhost/oop-shopping-cart/admin/products.php?error='. urlencode('Oops! Update product failed!'));
+			header('Refresh:0; url=http://localhost/market/admin/products.php?error='. urlencode('Oops! Update product failed!'));
 		}
 	}
 

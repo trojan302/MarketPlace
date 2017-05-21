@@ -2,7 +2,7 @@
 
 $idOrder = $_GET['deleteOrder'];
 
-$conn = new MySQLi('localhost','root','','project_ecommerce');
+$conn = new MySQLi('localhost','root','','marketplace');
 
 $query_select = "SELECT deleted FROM order_product WHERE id_order='".$idOrder."'";
 $sql_select = $conn->query($query_select);

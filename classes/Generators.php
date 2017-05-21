@@ -22,6 +22,16 @@ class Generators extends Database{
 
 	}
 
+	public function daelerProductID(){
+
+		$query = "SELECT (CASE WHEN (LENGTH(id_product) > 14) THEN MAX(CAST(REPLACE(SUBSTR(id_product, -3), '-','') AS UNSIGNED)) ELSE MAX(CAST(REPLACE(SUBSTR(id_product, -2), '-','') AS UNSIGNED)) END) AS NEW_ID FROM products";
+		$sql = $this->db->query($query);
+		$last_id = $sql->fetch_assoc();
+
+		return "DLR-".date('md').'-'.date('y').'-'.($last_id['NEW_ID']+1);
+
+	}
+
 	public function orderID(){
 
 		$query = "SELECT (CASE WHEN (LENGTH(id_order) > 14) THEN MAX(CAST(REPLACE(SUBSTR(id_order, -3), '-','') AS UNSIGNED)) ELSE MAX(CAST(REPLACE(SUBSTR(id_order, -2), '-','') AS UNSIGNED)) END) AS NEW_ID FROM order_product";

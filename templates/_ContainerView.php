@@ -37,6 +37,12 @@
 				<?php if (!isset($_SESSION['users'])): ?>
 					<a href="javascript:;" class="btn btn-primary" disabled><i class="fa fa-shopping-bag"></i> Buy Item</a>
 					<span class="help-block">Login for buy this item or Sign Up first.</span>
+				<?php elseif ($details['id_user'] == $_SESSION['users']): ?>
+					<a href="javascript:;" class="btn btn-primary" disabled><i class="fa fa-shopping-bag"></i> Buy Item</a>
+					<span class="help-block">This is your item.</span>
+				<?php elseif ($details['stock'] < 1): ?>
+					<a href="javascript:;" class="btn btn-primary" disabled><i class="fa fa-shopping-bag"></i> Buy Item</a>
+					<span class="help-block">Stock item is empty.</span>
 				<?php else: ?>
 					<button type="submit" class="btn btn-primary"><i class="fa fa-shopping-bag"></i> Buy Item</button>
 				<?php endif ?>
