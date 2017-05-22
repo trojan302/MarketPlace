@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Database
 {
@@ -7,7 +7,7 @@ class Database
 
     public function __construct()
     {
-        $this->db = new mysqli("localhost", "root", "","marketplace");
+        $this->db = new MySQLi("localhost", "root", "","marketplace")or die($this->db->error);
 
         return $this->db;
     }

@@ -11,51 +11,29 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="active">
+		<?php foreach ($messages->get_messages($_SESSION['users']) as $data): ?>
+		<?php if (sizeof($data) > 1): ?>
+		<tr class="<?php if ($data['view'] == 0): ?> active <?php endif ?>">
 			<td>
-				<input type="checkbox" name="" value="">
+				<input type="checkbox" name="delete[]">
 			</td>
-			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-			<td>unionmail@iam.com</td>
-			<td><?= date('Y-m-d h:i:s') ?></td>
-			<td><label class="label label-success">Users</label></td>
+			<td><?= substr($data['body'], 0, 50) ?>...</td>
+			<td><?= $data['email'] ?></td>
+			<td><?= $data['m_date'] ?></td>
+			<?php if ($data['member'] == 'Administrator'): ?>
+			<td><label class="label label-danger"><?= $data['member'] ?></label></td>
+			<?php else: ?>
+			<td><label class="label label-success"><?= $data['member'] ?></label></td>
+			<?php endif ?>
 		</tr>
-		<tr class="active">
-			<td>
-				<input type="checkbox" name="" value="">
-			</td>
-			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-			<td>bettamarketplace@iam.com</td>
-			<td><?= date('Y-m-d h:i:s') ?></td>
-			<td><label class="label label-primary">Admin</label></td>
-		</tr>
+		<?php else: ?>
 		<tr>
 			<td>
-				<input type="checkbox" name="" value="">
+				<p class="text-center">Inbox is Empty</p>
 			</td>
-			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-			<td>bettamarketplace@iam.com</td>
-			<td><?= date('Y-m-d h:i:s') ?></td>
-			<td><label class="label label-primary">Admin</label></td>
 		</tr>
-		<tr>
-			<td>
-				<input type="checkbox" name="" value="">
-			</td>
-			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-			<td>unionmail@iam.com</td>
-			<td><?= date('Y-m-d h:i:s') ?></td>
-			<td><label class="label label-success">Users</label></td>
-		</tr>
-		<tr>
-			<td>
-				<input type="checkbox" name="" value="">
-			</td>
-			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-			<td>unionmail@iam.com</td>
-			<td><?= date('Y-m-d h:i:s') ?></td>
-			<td><label class="label label-success">Users</label></td>
-		</tr>
+		<?php endif; ?>
+		<?php endforeach; ?>
 	</tbody>
 </table>
 

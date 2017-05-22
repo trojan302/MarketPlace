@@ -132,6 +132,62 @@ class Users extends Database
 
 	}
 
+	public function update_admin_profile($data){
+
+		if (is_array($data)) {
+			
+			$id_user = $data['id_user'];
+			$firstname = $data['firstname'];
+			$lastname = $data['lastname'];
+			$email = $data['email'];
+			$address = $data['address'];
+			$zip_code = $data['zip_code'];
+			$phone = $data['phone'];
+
+			$query = "UPDATE `users` SET `username`='".$username."',`firstname`='".$firstname."',`lastname`='".$lastname."',`address`='".$address."',`zip_code`='".$zip_code."',`phone`='".$phone."',`email`='".$email."' WHERE `id_user`='".$id_user."'";
+			$update = $this->db->query($query);
+
+			return $update;
+
+		}
+
+	}
+
+	public function check_pass($id_user, $old_pass){
+		
+		$query = "SELECT password FROM users WHERE id_user='".$id_user."'";
+		$sql = $this->db->query($query);
+		$result = $sql->fetch_assoc();
+		$status='';
+
+		if (md5($old_pass) != $result['password']) {
+			$status = false;
+		}else{
+			$status = true;
+		}
+
+		return $status;
+
+	}
+
+	public function update_admin_password($data){
+
+		if (is_array($data)) {
+			
+			$id_user = $data['id_user'];
+			$old_pass = $data['old_pass'];
+			$new_pass = $data['new_pass'];
+			$updated   = date('Y-m-d');
+
+			$query = "UPDATE `users` SET `password`='".md5($new_pass)."', `updated`='".$updated."' WHERE `id_user`='".$id_user."'";
+			$update = $this->db->query($query);
+
+			return $update;
+
+		}
+
+	}
+
 	public function get_user_details($id_user){
 
 		$query = "SELECT * FROM users WHERE id_user='".$id_user."'";
@@ -162,6 +218,35 @@ class Users extends Database
 
 	}
 
+	public function send_to($id_user){
+
+		$query = "SELECT CONCAT(firstname, ' ' ,lastname) AS fullname, email FROM users WHERE id_user = '".$id_user."'";
+		$sql = $this->db->query($query);
+		$result = $sql->fetch_assoc();
+
+		return $result;
+
+	}
+
+	public function send_message($id_user){
+
+		$to_id 		= $id_user;
+		$from_id	= 'USR-0406-17-1';
+
+		$to_name 	= $this->send_to($to_id);
+		$from_name 	= $this->send_to($from_id);
+
+		$body = "
+			Terimakasih ".ucwords($to_name['fullname'])." telah melakukan transaksi di situs kami. Barang yang anda pesan akan segera kami proses. Untuk pertannyaan lebih lanjut silahkan hubungi kami via messager yang telah kami sediakan.
+			<br><br>
+			The Best Regards,
+			". ucwords($from_name['fullname']);
+
+		$query = "INSERT INTO messages (`from`,`to`,`body`) VALUES ('".$to_id."','".from_id."','".$body."')";
+		$sql = $this->db->query($query);
+
+	}
+
 	public function user_upload_struk($data){
 
 		$id_user 		= $data['id_user'];
@@ -175,6 +260,7 @@ class Users extends Database
 
 		if ($sql) {
 			move_uploaded_file($tmp, $upload_path);
+			$this->send_message($id_user);
 			echo "<script>window.location.href='http://localhost/market/user/profile.php?success=true'</script>";
 		}else{
 			echo "<script>window.location.href='http://localhost/market/user/profile.php?error=true'</script>";

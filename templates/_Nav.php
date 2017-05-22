@@ -22,7 +22,7 @@
           </li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-info-sign"></i> How To? <span class="caret"></span></a>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> How To? <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <li><a href="how-to-order-item.php">Order Items</a></li>
               <li><a href="how-to-transaction.php">Transaction</a></li>

@@ -23,7 +23,7 @@
 			<tr>
 				<th style="width:25%;">Qty</th>
 				<td style="width:75%;">:
-					<input type="number" name="qty" max="<?= $details['stock'] ?>" min="1" placeholder="How Many?">
+					<input type="number" class="input-sm" style="width: 150px;" name="qty" max="<?= $details['stock'] ?>" min="1" placeholder="How Many?">
 				</td>
 			</tr>
 			<?php endif ?>

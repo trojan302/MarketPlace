@@ -21,17 +21,17 @@ if (isset($_FILES['struk_transfer']['name'])) {
 	$availabe   = array('jpg','jpeg','png','gif');
 
 	if (file_exists($upload_path)) {
-		echo "<script>window.location.href=window.location.pathname + 'profile.php?error=true'</script>";
+		echo "<script>window.location.href=window.location.pathname + '?error=' + encodeURIComponent('Struk yang anda masukkan sudah ada.')</script>";
 		exit;
 	}
 
 	if (!in_array($extension, $availabe)) {
-		echo "<script>window.location.href=window.location.pathname + 'profile.php?error=true'</script>";
+		echo "<script>window.location.href=window.location.pathname + '?error=' + encodeURIComponent('Gambar yang anda upload tidak sesuai standar. Gambar harus jpg, jpeg, png, gif.')</script>";
 		exit;
 	}
 	
 	if ($s_file_size > 10485760) {
-		echo "<script>window.location.href=window.location.pathname + 'profile.php?error=true'</script>";
+		echo "<script>window.location.href=window.location.pathname + '?error=' + encodeURIComponent('Gambar yang anda upload terlalu besar, ukuran atau size yang diperbolehkan harus kurang dari 10MB')</script>";
 		exit;
 	}
 

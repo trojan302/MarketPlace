@@ -1,8 +1,8 @@
 <?php 
 
-$date = new DateTime();
-$now = $date->format('F-Y');
-echo $now;
+// $date = new DateTime();
+// $now = $date->format('F-Y');
+// echo $now;
 
 // $idOrder = 'ORD-0417-17-2';
 
@@ -43,3 +43,13 @@ echo $now;
 // echo $idOrder;
 
 ?>
+
+<input list="browsers" name="browser">
+
+<datalist id="browsers">
+	<option value="Internet Explorer">Internet Explore</option>
+	<option value="Firefox"></option>
+	<option value="Chrome"></option>
+	<option value="Opera"></option>
+	<option value="Safari"></option>
+</datalist>

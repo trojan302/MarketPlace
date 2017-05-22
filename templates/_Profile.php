@@ -31,7 +31,7 @@
 				  <p>Uploading successfully!</p>
 				</div>
 				<?php endif; ?>
-				<form action="http://localhost<?= $_SERVER['REQUEST_URI'] ?>" method="POST" enctype="multipart/form-data" class="panel panel-primary"">
+				<form action="" method="POST" enctype="multipart/form-data" class="panel panel-primary"">
 				<div class="panel-heading">Upload Payment</div>
 					<div class="panel-content form-group" style="padding:10px;">
 						<label>Upload Struk Transfer</label>
@@ -47,9 +47,11 @@
 					      <select name="id_order" class="form-control">
 					      	<option value="">-- Your Orders --</option>
 					      	<?php foreach ($user->get_user_order($_SESSION['users']) as $data): ?>
-					      	<option value="<?= $data['O_ID_ORDER'] ?>">
-					      		<?= $data['O_PRODUCT'] ?>  (<?= $data['O_QTY'] ?>)
-					      	</option>
+					      		<?php if ($data['O_STATUS'] != 1): ?>
+							      	<option value="<?= $data['O_ID_ORDER'] ?>">
+							      		<?= $data['O_PRODUCT'] ?>  (<?= $data['O_QTY'] ?>)
+							      	</option>
+					      		<?php endif ?>
 					      	<?php endforeach ?>
 					      </select>
 					    </div>

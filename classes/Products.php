@@ -11,7 +11,7 @@ class Products extends Database {
 
 		$start 	 = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 
-		$products = "SELECT * FROM products  ORDER BY RAND() LIMIT $start, $perPage";
+		$products = "SELECT * FROM products ORDER BY RAND() LIMIT $start, $perPage";
 		$pResult  = $this->db->query($products);
 		$data     = array();
 		while ($result = $pResult->fetch_assoc()) {

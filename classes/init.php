@@ -23,6 +23,8 @@ $cart 			= new Cart();
 
 $daelers 		= new Daelers();
 
+$messages 		= new Messages();
+
 /* Admin Private Initialized */
 
 $payments = new Payments();

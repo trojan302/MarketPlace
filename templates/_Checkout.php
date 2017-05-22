@@ -97,7 +97,7 @@
 			</tr>
 			<tr>
 				<td colspan="3" align="right">Total Shipping :</td>
-				<td><?= $generator->IDR( ($_SESSION['total_price']) + ($_SESSION['total_price']*0.03) ) ?></td>
+				<td><?= $generator->IDR( ($_SESSION['total_price']) + ($_SESSION['total_price']*0.05) ) ?></td>
 			</tr>
 			<?php endif; ?>
 			</tbody>

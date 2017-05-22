@@ -34,8 +34,8 @@
         <label for="phone"><i class="fa fa-ticket"></i> Choose Membership</label>
         <select name="member" id="member" class="form-control" required>
           <option value="">-- Select One --</option>
-          <option value="1">Free Member</option>
-          <option value="2">Premium Member</option>
+          <option value="1">Just Member</option>
+          <option value="2">Daeler</option>
         </select>
         <div class="help-block">
           <p><i class="glyphicon glyphicon-info-sign"></i> If you register as Member Premium, please wait to activated your account.</p>
@@ -63,10 +63,5 @@
     </div>
   </div>
 </form>
-
-  <hr>
-
-  <footer>
-    <p>&copy; Betta Shop <?= date('Y') ?></p>
-  </footer>
+<br><br>
 </div> <!-- /container -->

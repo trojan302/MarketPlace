@@ -90,4 +90,16 @@ use marketplace;
 -- 	order_product.id_order;
 
 -- SELECT id_user, username, CONCAT(firstname, ' ' ,lastname) AS fullname, email FROM users WHERE id_member=3;
-DESCRIBE users;
+-- SELECT CONCAT(users.firstname, ' ' ,users.lastname) AS fullname, users.id_user as id, members.name AS member FROM users JOIN members ON users.id_member = members.id_member WHERE users.id_user = 'USR-0414-17-4';
+SELECT 
+	messages.to_user AS to_user, 
+	messages.from_user AS from_user, 
+	messages.view AS view, 
+	messages.body AS body, 
+	messages.date AS m_date, 
+	users.email AS email,
+	members.name AS member
+	FROM messages JOIN users 
+	ON messages.from_user = users.id_user
+	JOIN members ON users.id_member = members.id_member 
+WHERE messages.to_user = 'USR-0414-17-4';
