@@ -143,8 +143,9 @@ class Users extends Database
 			$address = $data['address'];
 			$zip_code = $data['zip_code'];
 			$phone = $data['phone'];
+			$no_rek = $data['no_rek'];
 
-			$query = "UPDATE `users` SET `username`='".$username."',`firstname`='".$firstname."',`lastname`='".$lastname."',`address`='".$address."',`zip_code`='".$zip_code."',`phone`='".$phone."',`email`='".$email."' WHERE `id_user`='".$id_user."'";
+			$query = "UPDATE `users` SET `username`='".$username."',`firstname`='".$firstname."',`lastname`='".$lastname."',`address`='".$address."',`zip_code`='".$zip_code."',`phone`='".$phone."',`email`='".$email."', `no_rek`='".$no_rek."' WHERE `id_user`='".$id_user."'";
 			$update = $this->db->query($query);
 
 			return $update;
@@ -294,6 +295,38 @@ class Users extends Database
 		$result = $sql->fetch_assoc();
 
 		return $result;
+
+	}
+
+	public function get_admin_rekening(){
+
+		$query = "SELECT no_rek FROM users WHERE id_user='USR-0406-17-1'";
+		$sql = $this->db->query($query);
+		$result = $sql->fetch_assoc();
+
+		return $result['no_rek'];
+
+	}
+
+	public function ganti_avatar($data){
+
+		$avatar_url = $data['avatar_url'];
+		$id_user 	= $data['id_user'];
+
+		$sql = "UPDATE users SET avatar='".$avatar_url."' WHERE id_user='".$id_user."'";
+		$update = $this->db->query($sql);
+
+		return $update;
+
+	}
+
+	public function get_user_avatar($id_user){
+
+		$query 	= "SELECT avatar FROM users WHERE id_user='".$id_user."'";
+		$sql 	= $this->db->query($quer);
+		$result = $sql->fetch_assoc();
+
+		return $result['avatar'];
 
 	}
 	

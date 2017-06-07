@@ -23,11 +23,13 @@
 				<div class="row">
     				<div class="col-xs-6 col-sm-6 col-md-6">
     					<div class="form-group">
+	    					<label for="">Nama Depan</label>
                             <input type="text" name="first_name" id="first_name" class="form-control input-sm" value="<?= $admin_data['firstname'] ?>">
     					</div>
     				</div>
     				<div class="col-xs-6 col-sm-6 col-md-6">
     					<div class="form-group">
+	    					<label for="">Nama Belakang</label>
     						<input type="text" name="last_name" id="last_name" class="form-control input-sm" value="<?= $admin_data['lastname'] ?>">
     					</div>
     				</div>
@@ -35,19 +37,28 @@
 			</div>
 
 			<div class="form-group">
+				<label for="">Email</label>
 				<input type="text" name="email" id="email" class="form-control input-sm" value="<?= $admin_data['email'] ?>">
 			</div>
 
 			<div class="form-group">
+				<label for="">Telepon</label>
 				<input type="text" name="phone" id="phone" class="form-control input-sm" value="<?= $admin_data['phone'] ?>">
 			</div>
 
 			<div class="form-group">
+				<label for="">Kode Pos</label>
 				<input type="text" name="zip_code" id="zip_code" class="form-control input-sm" value="<?= $admin_data['zip_code'] ?>">
 			</div>
 
 			<div class="form-group">
+				<label for="">Alamat</label>
 				<textarea name="address" class="form-control input-sm"><?= $admin_data['address'] ?></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="">No Rekening</label>
+				<input type="text" name="no_rek" class="form-control input-sm" value="<?= $admin_data['no_rek'] ?>">
 			</div>
 
 			<input type="hidden" name="id_user" value="<?= $admin_data['id_user'] ?>">

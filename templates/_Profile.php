@@ -5,7 +5,17 @@
 	<div class="container row">
 
 		<div class="col-lg-3 text-center">
-			<img src="http://fakeimg.pl/250x250/222/fff/?text=<?= $_SESSION['firstname'] ?>&font=lobster" class="img-circle">
+			<img src="<?= $dataUser['avatar'] ?>" class="img-circle img-responsive">
+			<br><br>
+			<form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
+				<div class="input-group">
+			      <input type="file" name="avatar" class="form-control">
+			      <input type="hidden" name="id_user" value="<?= $_SESSION['users'] ?>">
+			      <span class="input-group-btn">
+			        <input type="submit" name="ganti_avatar" value="Ganti Avatar" class="btn btn-primary">
+			      </span>
+			    </div>
+			</form>
 			<hr>
 			<h3><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?></h3>
 			<div class="text-left">
@@ -65,56 +75,26 @@
 
 		<div class="col-lg-9">
 
-		<?php if (isset($_GET['success'])) { ?>
-		<div class="alert alert-success alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>Woow!</strong> <?= $_GET['success']; ?>
-		</div>
-		<?php }elseif (isset($_GET['error'])){ ?>
-		<div class="alert alert-danger alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>Oops!</strong> <?= $_GET['error']; ?>
-		</div>
-		<?php } ?>
-
-			<div class="card tabcordion">
-			    <ul class="nav nav-tabs" role="tablist">
-			    <?php if ($_SESSION['scopes'] == 'user/'): ?>
-			        <li role="presentation"><a href="#YourOrders" aria-controls="YourOrders" class="tab" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Your Orders</a></li>
-			        <li role="presentation"><a href="#messages" aria-controls="messages" class="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i> Messages</a></li>
-			        <li role="presentation"><a href="#settings" aria-controls="settings" class="tab" data-toggle="tab"><i class="fa fa-cogs"></i> Settings</a></li>
-			    <?php else: ?>
-			        <li role="presentation" class="active">
-			        	<a href="#UserOrder" aria-controls="UserOrder" class="tab" data-toggle="tab"><i class="fa fa-shopping-cart"></i> User Orders</a>
-			        </li>
-			        <li role="presentation"><a href="#YourOrders" aria-controls="YourOrders" class="tab" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Your Orders</a></li>
-			        <li role="presentation"><a href="#SaleItem" aria-controls="SaleItem" class="tab" data-toggle="tab"><i class="fa fa-archive"></i> Sale Items</a></li>
-			        <li role="presentation"><a href="#messages" aria-controls="messages" class="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i> Messages</a></li>
-			        <li role="presentation"><a href="#settings" aria-controls="settings" class="tab" data-toggle="tab"><i class="fa fa-cogs"></i> Settings</a></li>
-			    <?php endif; ?>
-			    </ul>
-
-			    <!-- Tab panes -->
-			    <div class="tab-content">
-			    <?php if ($_SESSION['scopes'] != 'user/'): ?>
-			        <div role="tabpanel" class="tab-pane active" id="UserOrder">
-			        	<?php require_once 'sub_templates/_TableUserOrders.php'; ?>
-			        </div>
-			    <?php endif; ?>
-			        <div role="tabpanel" class="tab-pane" id="YourOrders">
-			        	<?php require_once 'sub_templates/_TableDaelerOrders.php'; ?>
-			        </div>
-			    <?php if ($_SESSION['scopes'] != 'user/'): ?>
-			        <div role="tabpanel" class="tab-pane" id="SaleItem">
-			        	<?php require_once 'sub_templates/_SaleItems.php'; ?>
-			        </div>
-			    <?php endif ?>
-			        <div role="tabpanel" class="tab-pane" id="messages">
-			        	<?php require_once 'sub_templates/_Messages.php'; ?>
-			        </div>
-			        <div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
-			    </div>
+			<?php if (isset($_GET['success'])) { ?>
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<strong>Woow!</strong> <?= $_GET['success']; ?>
 			</div>
+			<?php }elseif (isset($_GET['error'])){ ?>
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<strong>Oops!</strong> <?= $_GET['error']; ?>
+			</div>
+			<?php } ?>
+
+			<?php
+
+				if (!isset($_GET['msg']) && !isset($_GET['view'])) {
+					require_once '_CardAccordion.php'; 
+				}else{
+					require_once '_ReadMessage.php';
+				} 
+			?>
 
 		</div>
 

@@ -5,9 +5,35 @@
 <!-- <script src="<?= __SHOP__ ?>admin/libs/js/jquery-1.8.2.min.js"></script> -->
 <script src="<?= __SHOP__ ?>admin/libs/js/morris-0.4.1.min.js"></script>
 <script src="<?= __SHOP__ ?>admin/libs/js/bootstrap-toggle.min.js"></script>
+<!-- <script type="text/javascript" src="<?= __SHOP__ ?>assets/js/jquery.shadow.js"></script>
+<script type="text/javascript" src="<?= __SHOP__ ?>assets/js/jquery.ifixpng.js"></script>
+
+<script type="text/javascript" src="<?= __SHOP__ ?>assets/js/jquery.fancyzoom.js"></script> -->
 
 <script>
 	$(document).ready(function(){
+
+	  var TriggerClick = 0;
+
+	  $("#imgPesan").click(function(){
+	    if(TriggerClick ==0){
+	         TriggerClick=1;
+	         $("#imgPesan").animate({width:'50%'}, 500);
+	    }else{
+	         TriggerClick=0;
+	         $("#imgPesan").animate({width:'100%'}, 500);
+	    };
+	  });
+
+	  $("#imgSmile").click(function(){
+	    if(TriggerClick ==0){
+	         TriggerClick=1;
+	         $("#imgSmile").animate({width:'200px'}, 500);
+	    }else{
+	         TriggerClick=0;
+	         $("#imgSmile").animate({width:'500px'}, 500);
+	    };
+	  });
 
 		$("#table_order").on('change', '#update_process', function(event) {
 			event.preventDefault();

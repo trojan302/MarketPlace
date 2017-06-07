@@ -17,5 +17,7 @@ require_once '../classes/init.php';
 require_once '../actions/CartAction.php';
 require_once '../actions/PaymentAction.php';
 require_once '../actions/StrukAction.php';
+require_once '../actions/PelangganAction.php';
+require_once '../actions/MessagesAction.php';
 
 ?>

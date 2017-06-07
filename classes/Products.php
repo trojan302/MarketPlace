@@ -137,15 +137,15 @@ class Products extends Database {
 								return false;
 							}
 
-					}else{
-								return "Ukuran melebihi standar";
-							}
-
-						}else {
-							return "Ekstensi tidak diijinkan";
+						}else{
+							return "Ukuran melebihi standar";
 						}
 
+					}else {
+						return "Ekstensi tidak diijinkan";
 					}
+
+				}
 
 			}
 		}

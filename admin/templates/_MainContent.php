@@ -168,54 +168,9 @@
         </tbody>
       </table>
 
-
-  <div class="row">
-    <!-- Tasks Content -->
-    <div class="col-md-4">
-      <ul class="list-group">
-        <h4 class="list-group-item-heading"><i class="fa fa-tasks"></i> Tasks Rountine</h4>
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-8">
-      <div class="list-group">
-        <h4>Contact Form</h4>
-        <a href="#" class="list-group-item active">
-          <h4 class="list-group-item-heading">Jhon Doe</h4>
-          <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, saepe! Accusamus quasi mollitia laborum eligendi quibusdam! At maiores earum expedita vero recusandae vel consectetur natus! Suscipit eligendi, deserunt iste magni!</p>
-        </a>
-        <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading">Jane Doe</h4>
-          <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, saepe! Accusamus quasi mollitia laborum eligendi quibusdam! At maiores earum expedita vero recusandae vel consectetur natus! Suscipit eligendi, deserunt iste magni!</p>
-        </a>
-        <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading">Thomson</h4>
-          <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, saepe! Accusamus quasi mollitia laborum eligendi quibusdam! At maiores earum expedita vero recusandae vel consectetur natus! Suscipit eligendi, deserunt iste magni!</p>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
+      <br>
+      <br>
+      <br>
 
 <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

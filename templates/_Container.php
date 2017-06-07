@@ -7,7 +7,7 @@
         <span class="watermark">E MARKETPLACE</span>
       </div>
       <div class="caption">
-        <h3><?= $data['name'] ?></h3>
+        <h4><?= $data['name'] ?></h4>
         <p>
           <b>Stock</b> : <?= $data['stock'] ?><br>
           Category : <b><?= $products->get_details_item($data['id_product'])['cat_name'] ?></b><br>

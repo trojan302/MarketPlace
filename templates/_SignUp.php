@@ -20,29 +20,33 @@
         <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
       </div>
       <div class="form-group">
-        <label for="firstname"><i class="fa fa-user"></i> Fullname</label>
+        <label for="firstname"><i class="fa fa-user"></i> Nama Lengkap</label>
         <div class=" form-inline">
           <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Firstname" required>
           <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Lastname" required>
         </div>
       </div>
       <div class="form-group">
-        <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
+        <label for="phone"><i class="fa fa-phone"></i> Nomor Telepon</label>
         <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone number : e.g (+62) 858 xxx xxx xx" required>
       </div>
       <div class="form-group">
-        <label for="phone"><i class="fa fa-ticket"></i> Choose Membership</label>
+        <label for="phone"><i class="fa fa-ticket"></i> Pilih Member</label>
         <select name="member" id="member" class="form-control" required>
-          <option value="">-- Select One --</option>
-          <option value="1">Just Member</option>
-          <option value="2">Daeler</option>
+          <option value="">-- Pilih Satu --</option>
+          <option value="1">Pelanggan</option>
+          <option value="2">Pedagang</option>
         </select>
         <div class="help-block">
-          <p><i class="glyphicon glyphicon-info-sign"></i> If you register as Member Premium, please wait to activated your account.</p>
+          <p><i class="glyphicon glyphicon-info-sign"></i> Jika anda mendaftar sebagai Pedagan, anda harus menunggu konfirmasi dari admin terlebih dahulu.</p>
         </div>
       </div>
     </div>
     <div class="col-md-6">
+      <div class="form-group">
+        <label for="no_rek"><i class="fa fa-credit-card"></i> Nomor Rekening</label>
+        <input type="no_rek" class="form-control" name="no_rek" id="no_rek" placeholder="Nomor Rekening" required>
+      </div>
       <div class="form-group">
         <label for="email"><i class="fa fa-envelope-o"></i> Email address</label>
         <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>

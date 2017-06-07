@@ -27,6 +27,7 @@ $messages 		= new Messages();
 
 /* Admin Private Initialized */
 
+$admin_rek = $user->get_admin_rekening();
 $payments = new Payments();
 
 $admin = new AdminNotifications();

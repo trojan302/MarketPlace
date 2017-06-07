@@ -8,6 +8,10 @@
 		<form action="<?= $_SERVER['REQUEST_URI'] ?>" method="POST">
 		<table class="table">
 			<tr>
+				<th style="width:25%;">Pedagang</th>
+				<td style="width:75%;">: &nbsp; <?= ucfirst($user->get_user_details($details['id_user'])['firstname']) . ' ' . ucfirst($user->get_user_details($details['id_user'])['lastname'])?> &nbsp; | &nbsp; Email : <?= $user->get_user_details($details['id_user'])['email'] ?></td>
+			</tr>
+			<tr>
 				<th style="width:25%;">Stock</th>
 				<td style="width:75%;">: <?= $data = ($details['stock'] != 0) ? $details['stock'] . " Pcs" : "Sold Out"; ?></td>
 			</tr>

@@ -91,15 +91,32 @@ use marketplace;
 
 -- SELECT id_user, username, CONCAT(firstname, ' ' ,lastname) AS fullname, email FROM users WHERE id_member=3;
 -- SELECT CONCAT(users.firstname, ' ' ,users.lastname) AS fullname, users.id_user as id, members.name AS member FROM users JOIN members ON users.id_member = members.id_member WHERE users.id_user = 'USR-0414-17-4';
+-- SELECT 
+-- 	messages.to_user AS to_user, 
+-- 	messages.from_user AS from_user, 
+-- 	messages.view AS view, 
+-- 	messages.body AS body, 
+-- 	messages.date AS m_date, 
+-- 	users.email AS email,
+-- 	members.name AS member
+-- 	FROM messages JOIN users 
+-- 	ON messages.from_user = users.id_user
+-- 	JOIN members ON users.id_member = members.id_member 
+-- WHERE messages.to_user = 'USR-0414-17-4';
+
+-- DELETE FROM struk_payment;
 SELECT 
+	users.id_user AS id_user, 
+	users.email AS email, 
 	messages.to_user AS to_user, 
-	messages.from_user AS from_user, 
-	messages.view AS view, 
-	messages.body AS body, 
-	messages.date AS m_date, 
-	users.email AS email,
-	members.name AS member
-	FROM messages JOIN users 
-	ON messages.from_user = users.id_user
-	JOIN members ON users.id_member = members.id_member 
-WHERE messages.to_user = 'USR-0414-17-4';
+	messages.from_user AS from_user
+FROM
+	messages
+JOIN
+	users
+ON 
+	messages.from_user = users.id_user
+WHERE
+	messages.to_user = 'USR-0406-17-2'  
+
+-- SELECT id_user, firstname FROM users WHERE firstname='Ayu';

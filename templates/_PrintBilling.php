@@ -84,6 +84,10 @@
 				  		<td>: <?= $data_user['email'] ?></td>
 				  	</tr>
 				  	<tr>
+				  		<th>No Rekening Pembayaran</th>
+				  		<td>: <?= $admin_rek ?></td>
+				  	</tr>
+				  	<tr>
 				  		<th>&nbsp;</th>
 				  		<td>: <a href="<?= __SHOP__ . $_SESSION['scopes'] ?>" title="I Have a done!" class="btn btn-default">Done</a></td>
 				  	</tr>

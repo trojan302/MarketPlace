@@ -18,5 +18,6 @@ require_once '../actions/CartAction.php';
 require_once '../actions/PaymentAction.php';
 require_once '../actions/StrukAction.php';
 require_once '../actions/DaelerActions.php';
+require_once '../actions/MessagesAction.php';
 
 ?>

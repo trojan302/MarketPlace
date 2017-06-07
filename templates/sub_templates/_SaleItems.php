@@ -132,7 +132,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                 <input type="submit" name="editProduct" class="btn btn-primary" value="Update Products">
+                 <input type="submit" name="DaelereditProduct" class="btn btn-primary" value="Update Products">
             </form>
             </div>
         </div>
